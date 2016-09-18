@@ -1,0 +1,42 @@
+@using AngularStarter.Models
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<AngRenderModel>
+@{
+    Layout = Model.isApp ? "Blank.cshtml" : "umbLayout.cshtml";
+}
+
+<div id="main-wrapper">
+    <div id="main" class="container">
+        <div class="row">
+            <div class="9u skel-cell-mainContent">
+                <div class="content content-left">
+                    <!-- Content -->
+                    <article class="is-page-content">
+                        <header>
+                            <h2>{{content.title ? content.title : content.Name}}</h2>
+                        </header>
+                        <section>
+                            <span class="image image-full" ng-show="content.image">
+                                <img ng-src="{{content.image}}" alt="" /></span>
+
+                            <div ng-bind-html="html(content.bodyText)"></div>
+                        </section>
+                    </article>
+                    <!-- /Content -->
+                </div>
+            </div>
+            <div class="3u">
+                <div class="sidebar">
+                    <!-- Sidebar -->
+                    @{ Html.RenderPartial("umbLatestNewsWidget"); }
+                    <!-- /Sidebar -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="12u">
+                @{ Html.RenderPartial("umbFeatures"); }
+            </div>
+        </div>
+    </div>
+</div>
+

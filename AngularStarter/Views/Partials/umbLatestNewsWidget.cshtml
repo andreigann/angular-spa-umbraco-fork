@@ -1,0 +1,18 @@
+﻿
+<div umb-latest-news-widget>
+    <h2 class="major"><span>Recent Posts</span></h2>
+
+    <!-- Archives -->
+    <ul class="style2">
+            <li ng-repeat="newsItem in newsItems">
+                <article class="is-post-summary">
+                    <h3><a ng-href="{{newsItem.Url}}">{{newsItem.title ? newsItem.title : newsItem.Name}}</a></h3>
+                    <ul class="meta">
+                        <li class="timestamp">{{newsItem.CreateDate}}</li>
+                    </ul>
+                </article>
+            </li>
+    
+    </ul>
+    <a ng-href="{{newsOverview.Url}}" class="button button-alt">Browse Archives</a>
+</div>

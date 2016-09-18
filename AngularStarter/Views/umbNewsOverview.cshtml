@@ -1,0 +1,48 @@
+@using AngularStarter.Models
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<AngRenderModel>
+@{
+    Layout = Model.isApp ? "Blank.cshtml" : "umbLayout.cshtml";
+}
+
+
+<div id="main-wrapper" umb-news-overview-widget="content">
+    <div id="main" class="container">
+        <div class="row">
+            <div class="12u skel-cell-mainContent">
+                <div class="content">
+                    <!-- Content -->
+                    <article class="is-page-content">
+                        <header>
+                            <h2>{{content.title ? content.title : content.Name}}</h2>
+                        </header>
+                            <section ng-repeat="item in newsItems">
+                                <h3><a href="{{item.Url}}">{{item.title ? item.title : item.Name}}</a></h3>
+                                <span class="byline">{{item.subHeader}}</span>
+                                <ul class="meta">
+                                    <li class="timestamp">{{item.CreateDate}}</li>
+                                </ul>
+
+                                    
+                                
+                                    <a href="{{item.Url}}" class="image image-full" ng-show="item.image">
+                                        <img src="{{item.image}}" alt="" /></a>
+                                
+
+                                <span ng-bind-html="html(featuredNewsItem.bodyText, 200)"></span>
+
+                                <a href="{{item.Url}}" class="button">Continue Reading</a>
+                            </section>
+                        
+                    </article>
+                    <!-- /Content -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="12u">
+                @{ Html.RenderPartial("umbFeatures"); }
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,20 @@
+﻿<section class="is-features" umb-features>
+    <h2 class="major"><span>Wonderful featured pages</span></h2>
+    <div>
+        <div class="row">
+               
+                <div class="3u" ng-repeat="feature in features">
+                    <!-- Feature -->
+                    <section class="is-feature">
+                        <a ng-href="{{feature.Url}}" class="image image-full">
+                            <img ng-src="{{feature.image}}" alt="" /></a>
+                        <h3><a ng-href="{{feature.Url}}">{{feature.Name}}</a></h3>
+                        <span ng-bind-html="html(feature.bodyText, 100)"></span>
+                    </section>
+                    <!-- /Feature -->
+                </div>
+            
+        </div>
+    </div>
+</section>
+

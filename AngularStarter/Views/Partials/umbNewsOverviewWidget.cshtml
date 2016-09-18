@@ -1,0 +1,38 @@
+﻿<section class="is-blog" umb-news-overview-widget="content">
+    <h2 class="major"><span>{{content.Name}}</span></h2>
+        
+        <div>
+        <div class="row">
+            <div class="9u">
+                <div class="content content-left">
+                        
+                    <article class="is-post">
+                        <header>
+                            <h3><a href="{{featuredNewsItem.Url}}">{{featuredNewsItem.title ? featuredNewsItem.title : featuredNewsItem.Name}}</a></h3>
+                            <span class="byline"> {{featuredNewsItem.subheader}}</span>
+                            <ul class="meta">
+                                <li class="timestamp">{{featuredNewsItem.CreateDate}}</li>
+                            </ul>
+                        </header>
+
+                         
+                            <a ng-href="{{featuredNewsItem.Url}}" class="image image-full" ng-show="featuredNewsItem.image">
+                                <img ng-src="{{featuredNewsItem.image}}"  alt="" /></a>
+                        
+
+                        <span ng-bind-html="html(featuredNewsItem.bodyText)"></span>
+                            
+
+                        <a ng-href="{{featuredNewsItem.Url}}" class="button">Continue Reading</a>
+                    </article>
+                        
+                </div>
+            </div>
+            <div class="3u">
+                <div class="sidebar">
+                    @{ Html.RenderPartial("umbLatestNewsWidget"); }
+                </div>
+            </div>
+        </div>
+    </div> 
+</section>
